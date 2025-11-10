@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mecs-standard.org/schema/v1.0/content-types/video.schema.json",
+  "title": "MECS Video Content Type",
+  "description": "Video content from various sources",
+  "type": "object",
+  "required": ["url"],
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the video (YouTube, Vimeo, direct link, etc.)"
+    },
+    "provider": {
+      "type": "string",
+      "enum": ["youtube", "vimeo", "direct", "other"],
+      "description": "Video hosting provider",
+      "default": "other"
+    },
+    "title": {
+      "type": "string",
+      "description": "Video title (if different from section title)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Video description or summary"
+    },
+    "thumbnail": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to video thumbnail image"
+    },
+    "duration": {
+      "type": "number",
+      "description": "Video duration in seconds",
+      "minimum": 0
+    },
+    "transcript": {
+      "type": "string",
+      "description": "Video transcript for accessibility"
+    },
+    "subtitles": {
+      "type": "array",
+      "description": "Available subtitle tracks",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": ["language", "url"]
+      }
+    },
+    "startTime": {
+      "type": "number",
+      "description": "Start playback at this time (seconds)",
+      "minimum": 0
+    },
+    "endTime": {
+      "type": "number",
+      "description": "End playback at this time (seconds)",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

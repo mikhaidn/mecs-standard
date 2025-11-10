@@ -1,0 +1,131 @@
+{
+  "mecsVersion": "1.0.0",
+  "type": "mecs:course",
+  "id": "intro-programming-101",
+  "title": "Introduction to Programming",
+  "description": "Learn the fundamentals of programming using Python. Perfect for complete beginners with no prior experience required.",
+  "metadata": {
+    "author": "Dr. Sarah Johnson",
+    "institution": "Tech University",
+    "subject": "Computer Science",
+    "level": "beginner",
+    "language": "en",
+    "duration": {
+      "value": 8,
+      "unit": "weeks"
+    },
+    "prerequisites": [],
+    "learningObjectives": [
+      "Understand basic programming concepts and terminology",
+      "Write simple programs using variables, loops, and functions",
+      "Debug and troubleshoot common programming errors",
+      "Apply problem-solving strategies to coding challenges"
+    ],
+    "tags": ["programming", "python", "beginner", "computer-science"],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0"
+  },
+  "sections": [
+    {
+      "id": "sec-001",
+      "title": "Welcome to Programming",
+      "order": 0,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Welcome to Introduction to Programming!\n\nIn this course, you'll learn the fundamentals of programming using Python, one of the most popular and beginner-friendly programming languages.\n\n## What You'll Learn\n\n- Variables and data types\n- Control flow (if statements, loops)\n- Functions and modularity\n- Problem-solving with code\n- Debugging techniques\n\n## Course Structure\n\nThis course is divided into 8 weeks, with each week covering a new topic. You'll have:\n\n- Video lectures\n- Reading materials\n- Hands-on coding exercises\n- Weekly quizzes\n- A final project\n\n**Let's get started!**"
+      },
+      "metadata": {
+        "duration": {
+          "value": 10,
+          "unit": "minutes"
+        },
+        "difficulty": "easy",
+        "keywords": ["introduction", "overview", "syllabus"]
+      },
+      "createdAt": "2025-01-01T10:00:00Z",
+      "updatedAt": "2025-01-01T10:00:00Z"
+    },
+    {
+      "id": "sec-002",
+      "title": "What is Programming?",
+      "order": 1,
+      "contentType": "mecs:video",
+      "content": {
+        "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+        "provider": "youtube",
+        "title": "What is Programming? - Introduction",
+        "description": "A gentle introduction to programming concepts and why learning to code is valuable.",
+        "duration": 720,
+        "transcript": "Programming is the process of creating instructions for computers..."
+      },
+      "metadata": {
+        "duration": {
+          "value": 12,
+          "unit": "minutes"
+        },
+        "difficulty": "easy",
+        "learningObjectives": [
+          "Define what programming is",
+          "Understand how computers execute code",
+          "Identify real-world applications of programming"
+        ],
+        "keywords": ["programming", "introduction", "basics"]
+      },
+      "createdAt": "2025-01-01T10:15:00Z",
+      "updatedAt": "2025-01-01T10:15:00Z"
+    },
+    {
+      "id": "sec-003",
+      "title": "Setting Up Your Environment",
+      "order": 2,
+      "contentType": "mecs:document",
+      "content": {
+        "url": "https://example.com/docs/python-setup-guide.pdf",
+        "title": "Python Setup Guide",
+        "docType": "pdf",
+        "description": "Step-by-step guide to installing Python and setting up your development environment on Windows, Mac, or Linux.",
+        "fileSize": 2457600,
+        "pages": 12,
+        "downloadable": true
+      },
+      "metadata": {
+        "duration": {
+          "value": 30,
+          "unit": "minutes"
+        },
+        "difficulty": "easy",
+        "keywords": ["setup", "installation", "python", "environment"]
+      },
+      "createdAt": "2025-01-01T10:30:00Z",
+      "updatedAt": "2025-01-01T10:30:00Z"
+    },
+    {
+      "id": "sec-004",
+      "title": "Your First Python Program",
+      "order": 3,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Your First Python Program\n\nLet's write our first Python program: the classic \"Hello, World!\"\n\n## Step 1: Open Your Code Editor\n\nOpen your Python IDE or text editor. We recommend VS Code or PyCharm for beginners.\n\n## Step 2: Create a New File\n\nCreate a new file called `hello.py`\n\n## Step 3: Write the Code\n\n```python\nprint(\"Hello, World!\")\n```\n\n## Step 4: Run Your Program\n\nSave the file and run it:\n\n```bash\npython hello.py\n```\n\nYou should see:\n\n```\nHello, World!\n```\n\n## Congratulations! 🎉\n\nYou've just written and executed your first Python program!\n\n## What's Happening?\n\n- `print()` is a built-in Python function\n- It displays text to the console/terminal\n- The text in quotes is called a **string**\n\n## Try It Yourself\n\nModify the program to print your name instead of \"World\"."
+      },
+      "metadata": {
+        "duration": {
+          "value": 20,
+          "unit": "minutes"
+        },
+        "difficulty": "easy",
+        "learningObjectives": [
+          "Write a simple Python program",
+          "Use the print() function",
+          "Run Python code"
+        ],
+        "keywords": ["hello world", "print", "first program"]
+      },
+      "createdAt": "2025-01-01T11:00:00Z",
+      "updatedAt": "2025-01-01T11:00:00Z"
+    }
+  ],
+  "createdAt": "2025-01-01T09:00:00Z",
+  "updatedAt": "2025-01-01T11:30:00Z"
+}
