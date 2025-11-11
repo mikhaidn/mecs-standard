@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MECS Module Import Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .course-section {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .module-ref {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+        .imported-section {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            margin-left: 20px;
+        }
+        .content-type {
+            display: inline-block;
+            background: #6c757d;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .module-ref .content-type {
+            background: #2196f3;
+        }
+        .imported-section .content-type {
+            background: #ff9800;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .loading {
+            color: #856404;
+            background: #fff3cd;
+        }
+    </style>
+</head>
+<body>
+    <h1>MECS v0.2.0 - Module Import Demo</h1>
+
+    <p>This demo shows how MECS module imports work. Click the button below to load a course that imports an external module.</p>
+
+    <button onclick="loadAndUnfurlCourse()">Load Course & Unfurl Modules</button>
+
+    <div id="status"></div>
+
+    <h2>Original Course Structure</h2>
+    <div id="original-course"></div>
+
+    <h2>Unfurled Course (After Module Import)</h2>
+    <div id="unfurled-course"></div>
+
+    <script>
+        async function loadAndUnfurlCourse() {
+            const statusEl = document.getElementById('status');
+            const originalEl = document.getElementById('original-course');
+            const unfurledEl = document.getElementById('unfurled-course');
+
+            try {
+                statusEl.className = 'status loading';
+                statusEl.textContent = 'Loading course...';
+
+                // Load the course with module reference
+                const courseResponse = await fetch('./course-with-local-module.json');
+                const course = await courseResponse.json();
+
+                // Display original course structure
+                originalEl.innerHTML = renderCourse(course);
+
+                statusEl.textContent = 'Fetching module...';
+
+                // Find module-ref sections and unfurl them
+                const unfurledCourse = await unfurlModules(course);
+
+                statusEl.className = 'status success';
+                statusEl.textContent = '✓ Successfully loaded and unfurled module!';
+
+                // Display unfurled course structure
+                unfurledEl.innerHTML = renderCourse(unfurledCourse, true);
+
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.textContent = '✗ Error: ' + error.message;
+                console.error(error);
+            }
+        }
+
+        async function unfurlModules(course) {
+            const unfurledCourse = JSON.parse(JSON.stringify(course)); // Deep clone
+
+            for (let i = 0; i < unfurledCourse.sections.length; i++) {
+                const section = unfurledCourse.sections[i];
+
+                if (section.contentType === 'mecs:module-ref') {
+                    // Fetch the module
+                    const moduleUrl = section.content.url;
+                    const moduleResponse = await fetch(moduleUrl);
+                    const module = await moduleResponse.json();
+
+                    // Validate module type
+                    if (module.type !== 'mecs:module') {
+                        throw new Error('Invalid module type');
+                    }
+
+                    // Replace the module-ref with the module's sections
+                    unfurledCourse.sections.splice(i, 1, ...module.sections);
+
+                    // Mark sections as imported for visualization
+                    for (let j = i; j < i + module.sections.length; j++) {
+                        unfurledCourse.sections[j]._imported = true;
+                        unfurledCourse.sections[j]._moduleTitle = module.title;
+                    }
+
+                    // Adjust index since we just replaced 1 section with multiple
+                    i += module.sections.length - 1;
+                }
+            }
+
+            return unfurledCourse;
+        }
+
+        function renderCourse(course, showImported = false) {
+            let html = `
+                <div class="course-section">
+                    <h3>${course.title}</h3>
+                    <p>${course.description || ''}</p>
+                    <div><strong>Version:</strong> ${course.mecsVersion}</div>
+                    <div><strong>Sections:</strong> ${course.sections.length}</div>
+                </div>
+            `;
+
+            course.sections.forEach((section, index) => {
+                const isModuleRef = section.contentType === 'mecs:module-ref';
+                const isImported = section._imported;
+                const sectionClass = isModuleRef ? 'module-ref' : (isImported ? 'imported-section' : '');
+
+                html += `
+                    <div class="course-section ${sectionClass}">
+                        <span class="content-type">${section.contentType}</span>
+                        <strong>${index + 1}. ${section.title}</strong>
+                        ${isModuleRef ? `
+                            <div style="margin-top: 8px;">
+                                <small>📦 Module URL: <code>${section.content.url}</code></small>
+                            </div>
+                        ` : ''}
+                        ${isImported ? `
+                            <div style="margin-top: 8px;">
+                                <small>↳ Imported from: <strong>${section._moduleTitle}</strong></small>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+
+            return html;
+        }
+    </script>
+
+    <h2>How It Works</h2>
+    <ol>
+        <li><strong>Course Definition</strong> - The course includes a section with <code>contentType: "mecs:module-ref"</code></li>
+        <li><strong>Fetch Module</strong> - When loaded, the platform fetches the module JSON from the URL</li>
+        <li><strong>Validate</strong> - Ensures the fetched content is a valid <code>mecs:module</code></li>
+        <li><strong>Unfurl</strong> - Replaces the module-ref section with all sections from the module</li>
+        <li><strong>Result</strong> - The course now contains all the module's content as if it were defined inline</li>
+    </ol>
+
+    <h2>Benefits</h2>
+    <ul>
+        <li>✅ <strong>Reusability</strong> - Use the same module in multiple courses</li>
+        <li>✅ <strong>Updates</strong> - Update the module once, affects all courses</li>
+        <li>✅ <strong>Collaboration</strong> - Share modules across institutions</li>
+        <li>✅ <strong>Modularity</strong> - Break complex courses into manageable pieces</li>
+        <li>✅ <strong>Flexibility</strong> - Host modules anywhere (GitHub, CDN, web server)</li>
+    </ul>
+
+    <h2>Technical Details</h2>
+    <pre>
+Course Schema: schema/v1.0/course.schema.json
+Module Schema: schema/v1.0/module.schema.json
+Module-Ref Content Type: schema/v1.0/content-types/module-ref.schema.json
+
+Example Module: examples/modules/python-functions.json
+Example Course: examples/course-with-local-module.json
+
+Documentation: docs/module-imports.md</pre>
+
+    <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
+        <strong>MECS v0.2.0</strong> - Modular Educational Content Standard<br>
+        <a href="https://github.com/mikhaidn/mecs-standard">GitHub Repository</a>
+    </p>
+</body>
+</html>

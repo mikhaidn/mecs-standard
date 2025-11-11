@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mecs-standard.org/schema/v1.0/content-types/module-ref.schema.json",
+  "title": "MECS Module Reference Content Type",
+  "description": "References an external module by URL that can be imported/unfurled",
+  "type": "object",
+  "required": ["url"],
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the module JSON file",
+      "examples": [
+        "https://example.com/modules/python-basics.json",
+        "https://cdn.example.com/courses/data-structures-module.json"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional override for module title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional override for module description"
+    },
+    "cache": {
+      "type": "object",
+      "description": "Optional caching instructions for the module",
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "enum": ["always-fetch", "cache-first", "network-first"],
+          "description": "How to handle fetching and caching the module",
+          "default": "network-first"
+        },
+        "ttl": {
+          "type": "number",
+          "description": "Time-to-live in seconds for cached content",
+          "minimum": 0
+        }
+      }
+    },
+    "overrides": {
+      "type": "object",
+      "description": "Optional overrides for module properties",
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "description": "Metadata overrides (merged with module metadata)"
+        },
+        "sectionOrder": {
+          "type": "array",
+          "description": "Custom section ordering (array of section IDs)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludeSections": {
+          "type": "array",
+          "description": "Section IDs to exclude from import",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

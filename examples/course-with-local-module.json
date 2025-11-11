@@ -1,0 +1,40 @@
+{
+  "mecsVersion": "0.2.0",
+  "type": "mecs:course",
+  "id": "python-course-local-test",
+  "title": "Python Course (Local Module Test)",
+  "description": "Test course demonstrating module import with local file reference",
+  "metadata": {
+    "author": "Test Author",
+    "level": "beginner",
+    "language": "en"
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction",
+      "order": 0,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Test Course\n\nThis course imports a module from a local file for testing purposes."
+      }
+    },
+    {
+      "id": "functions-module",
+      "title": "Python Functions Module",
+      "order": 1,
+      "contentType": "mecs:module-ref",
+      "content": {
+        "url": "./modules/python-functions.json",
+        "description": "Imported from local file system for testing"
+      },
+      "metadata": {
+        "duration": {
+          "value": 2,
+          "unit": "hours"
+        }
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # MECS: Modular Educational Content Standard
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue) ![Status](https://img.shields.io/badge/status-draft-orange) ![License](https://img.shields.io/badge/license-CC0-green)
+![Version](https://img.shields.io/badge/version-0.2.0-blue) ![Status](https://img.shields.io/badge/status-draft-orange) ![License](https://img.shields.io/badge/license-CC0-green)
 
 An open JSON format for educational content that works across platforms.
 
@@ -14,7 +14,7 @@ MECS is a simple standard for structuring courses, lessons, and educational cont
 
 ```json
 {
-  "mecsVersion": "0.1.0",
+  "mecsVersion": "0.2.0",
   "type": "mecs:course",
   "title": "Introduction to Programming",
   "sections": [
@@ -44,13 +44,49 @@ MECS is a simple standard for structuring courses, lessons, and educational cont
 - ✅ **Extensible:** Add custom content types
 - ✅ **Open:** Free to use, no vendor lock-in
 
-## Content Types (v0.1.0)
+## Content Types (v0.2.0)
 
 - **`mecs:text`** - Markdown, HTML, or plain text
 - **`mecs:video`** - YouTube, Vimeo, or video URLs
 - **`mecs:document`** - PDFs, slides, worksheets
+- **`mecs:module-ref`** - Import entire modules from external URLs (NEW in v0.2.0)
 
 **Coming soon:** Quizzes, assignments, discussions
+
+## Module Imports (v0.2.0)
+
+MECS now supports importing external modules into courses! Just like URLs unfurl into video players, module URLs unfurl into complete sections.
+
+### Creating a Standalone Module
+
+```json
+{
+  "mecsVersion": "0.2.0",
+  "type": "mecs:module",
+  "id": "python-functions",
+  "title": "Python Functions",
+  "sections": [
+    { "title": "Intro to Functions", "contentType": "mecs:text", ... },
+    { "title": "Parameters", "contentType": "mecs:video", ... }
+  ]
+}
+```
+
+### Importing a Module
+
+```json
+{
+  "title": "Functions (Imported)",
+  "contentType": "mecs:module-ref",
+  "content": {
+    "url": "https://example.com/modules/python-functions.json"
+  }
+}
+```
+
+The platform fetches the module and unfurls all its sections into your course.
+
+See [examples/modules/](examples/modules/) for complete examples.
 
 ## Using MECS
 
@@ -101,8 +137,9 @@ Open an issue or PR on GitHub.
 
 ## Roadmap
 
-- **v0.1.0** (current) - Basic course structure
-- **v0.2.0** (next) - Quizzes and assignments
+- **v0.1.0** - Basic course structure
+- **v0.2.0** (current) - Module imports and reusable content
+- **v0.3.0** (next) - Quizzes and assessments
 - **v1.0.0** (future) - Stable release
 
 See [full roadmap](docs/roadmap.md)

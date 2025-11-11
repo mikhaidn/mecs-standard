@@ -1,0 +1,126 @@
+{
+  "mecsVersion": "0.2.0",
+  "type": "mecs:course",
+  "id": "complete-python-course",
+  "title": "Complete Python Programming Course",
+  "description": "A comprehensive Python course that combines original content with imported modules from external sources.",
+  "metadata": {
+    "author": "Dr. Sarah Johnson",
+    "institution": "Tech University",
+    "subject": "Computer Science",
+    "level": "beginner",
+    "language": "en",
+    "duration": {
+      "value": 12,
+      "unit": "weeks"
+    },
+    "prerequisites": [],
+    "learningObjectives": [
+      "Master Python fundamentals",
+      "Write clean, maintainable code",
+      "Build real-world applications",
+      "Understand advanced Python concepts"
+    ],
+    "tags": ["python", "programming", "beginner", "complete-course"],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0"
+  },
+  "sections": [
+    {
+      "id": "sec-intro",
+      "title": "Course Introduction",
+      "order": 0,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Welcome to Complete Python Programming!\n\nThis course will take you from complete beginner to confident Python programmer.\n\n## What Makes This Course Special?\n\n- **Comprehensive curriculum** covering all Python fundamentals\n- **Hands-on projects** to build real applications\n- **Modular content** that combines curated lessons from expert instructors\n- **Self-paced learning** with clear milestones\n\n## Course Structure\n\nWe've organized this course into themed modules, some created specifically for this course and others imported from our library of reusable educational content.\n\nLet's get started!"
+      },
+      "metadata": {
+        "duration": {
+          "value": 10,
+          "unit": "minutes"
+        },
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "sec-basics",
+      "title": "Python Basics",
+      "order": 1,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Python Basics\n\nBefore we dive into functions, let's cover the fundamentals.\n\n## Variables\n\n```python\nname = \"Alice\"\nage = 25\nheight = 5.6\n```\n\n## Data Types\n\n- **Strings**: `\"Hello\"`\n- **Integers**: `42`\n- **Floats**: `3.14`\n- **Booleans**: `True`, `False`\n\n## Basic Operations\n\n```python\n# Math\nsum = 10 + 5\nproduct = 10 * 5\n\n# String concatenation\ngreeting = \"Hello \" + \"World\"\n\n# Comparison\nis_equal = (5 == 5)  # True\n```"
+      },
+      "metadata": {
+        "duration": {
+          "value": 30,
+          "unit": "minutes"
+        },
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "sec-functions-module",
+      "title": "Python Functions Module (Imported)",
+      "order": 2,
+      "contentType": "mecs:module-ref",
+      "content": {
+        "url": "https://raw.githubusercontent.com/yourusername/mecs-standard/main/examples/modules/python-functions.json",
+        "description": "This module is imported from an external source and will unfurl into multiple sections covering functions in depth.",
+        "cache": {
+          "strategy": "network-first",
+          "ttl": 3600
+        }
+      },
+      "metadata": {
+        "duration": {
+          "value": 2,
+          "unit": "hours"
+        },
+        "difficulty": "easy",
+        "learningObjectives": [
+          "Define and use Python functions",
+          "Work with parameters and return values",
+          "Understand scope"
+        ]
+      }
+    },
+    {
+      "id": "sec-lists",
+      "title": "Lists and Loops",
+      "order": 3,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Lists and Loops\n\nNow that you understand functions, let's learn about lists and iteration.\n\n## Lists\n\n```python\nfruits = [\"apple\", \"banana\", \"orange\"]\nnumbers = [1, 2, 3, 4, 5]\nmixed = [1, \"hello\", True, 3.14]\n```\n\n## For Loops\n\n```python\nfor fruit in fruits:\n    print(fruit)\n```\n\n## While Loops\n\n```python\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1\n```\n\n## List Methods\n\n```python\nfruits.append(\"grape\")\nfruits.remove(\"banana\")\nlength = len(fruits)\n```"
+      },
+      "metadata": {
+        "duration": {
+          "value": 45,
+          "unit": "minutes"
+        },
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "sec-project",
+      "title": "Mini Project: Task Manager",
+      "order": 4,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Mini Project: Task Manager\n\nLet's apply what you've learned by building a simple task manager!\n\n## Project Requirements\n\nCreate a program that:\n1. Stores a list of tasks\n2. Has functions to add, remove, and display tasks\n3. Uses a loop to keep the program running\n4. Takes user input\n\n## Starter Code\n\n```python\ntasks = []\n\ndef add_task(task):\n    tasks.append(task)\n    print(f\"Added: {task}\")\n\ndef show_tasks():\n    print(\"\\nYour tasks:\")\n    for i, task in enumerate(tasks, 1):\n        print(f\"{i}. {task}\")\n\n# Your turn: add a remove_task function!\n```\n\n## Bonus Challenges\n\n- Add task completion status\n- Save tasks to a file\n- Add due dates"
+      },
+      "metadata": {
+        "duration": {
+          "value": 90,
+          "unit": "minutes"
+        },
+        "difficulty": "medium"
+      }
+    }
+  ],
+  "createdAt": "2025-01-15T10:00:00Z",
+  "updatedAt": "2025-01-15T10:00:00Z"
+}
