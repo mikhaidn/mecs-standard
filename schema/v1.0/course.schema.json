@@ -10,7 +10,7 @@
       "type": "string",
       "description": "Version of MECS standard this course conforms to",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "examples": ["1.0.0"]
+      "examples": ["0.1.0"]
     },
     "type": {
       "type": "string",

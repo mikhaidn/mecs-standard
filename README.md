@@ -1,7 +1,7 @@
 # MECS: Modular Educational Content Standard
 
-**Version:** 1.0.0
-**Status:** Draft
+**Version:** 0.1.0
+**Status:** Draft (Pre-release)
 **License:** CC0 1.0 Universal (Public Domain)
 
 ## Overview
@@ -20,7 +20,7 @@ MECS (Modular Educational Content Standard) is an open, JSON-based specification
 
 ```json
 {
-  "mecsVersion": "1.0.0",
+  "mecsVersion": "0.1.0",
   "type": "mecs:course",
   "id": "intro-to-programming",
   "title": "Introduction to Programming",
@@ -84,7 +84,7 @@ MECS (Modular Educational Content Standard) is an open, JSON-based specification
 ## Implementations
 
 ### Reference Implementations
-- [Course Builder](https://github.com/yourusername/course-builder) - Web-based course creation tool (JavaScript)
+- [Course Builder](https://github.com/mikhaidn/course-builder) - Web-based course creation tool (JavaScript)
 
 ### Community Implementations
 *Your implementation here! Create a PR to add it.*
@@ -224,7 +224,7 @@ MECS uses [Semantic Versioning](https://semver.org/):
 - **Minor**: New features, backward compatible (1.1.0)
 - **Patch**: Bug fixes (1.0.1)
 
-Current version: **1.0.0-draft**
+Current version: **0.1.0-draft**
 
 ## License
 
@@ -234,21 +234,21 @@ Current version: **1.0.0-draft**
 
 ## Roadmap
 
-### v1.0.0 (Current - Draft)
+### v0.1.0 (Current - Draft)
 - ✅ Core course structure
 - ✅ Basic content types (text, video, document)
 - ✅ Metadata schema
 - ✅ JSON Schema validation
-- 🔄 Reference implementation
+- ✅ Reference implementation (Course Builder)
 - 🔄 Specification document
 
-### v1.1.0 (Planned)
+### v0.2.0 (Next)
 - Assessment types (quiz, assignment)
 - Discussion/collaboration types
 - Analytics metadata
 - Accessibility requirements
 
-### v2.0.0 (Future)
+### v1.0.0 (Stable Release - Future)
 - Learning pathways
 - Adaptive content
 - Real-time collaboration
@@ -256,7 +256,7 @@ Current version: **1.0.0-draft**
 
 ## Community
 
-- **GitHub**: [github.com/yourusername/mecs-standard](https://github.com/yourusername/mecs-standard)
+- **GitHub**: [github.com/mikhaidn/mecs-standard](https://github.com/mikhaidn/mecs-standard)
 - **Discussions**: Use GitHub Discussions for questions
 - **Issues**: Report bugs or request features
 
@@ -269,8 +269,8 @@ If you use MECS in research or publications:
   title={MECS: Modular Educational Content Standard},
   author={MECS Contributors},
   year={2025},
-  url={https://github.com/yourusername/mecs-standard},
-  version={1.0.0}
+  url={https://github.com/mikhaidn/mecs-standard},
+  version={0.1.0}
 }
 ```
 
