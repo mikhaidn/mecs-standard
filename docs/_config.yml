@@ -1,0 +1,108 @@
+# Site Settings
+title: MECS
+description: Modular Educational Content Standard - Universal JSON format for educational content
+url: "https://mecs-standard.org"
+baseurl: ""
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Theme
+theme: minima
+# remote_theme: pmarsceill/just-the-docs # Alternative: use this if preferred
+
+# Collections
+collections:
+  content_types:
+    output: true
+    permalink: /docs/content-types/:name
+  guides:
+    output: true
+    permalink: /docs/guides/:name
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "docs"
+    values:
+      layout: "docs"
+  - scope:
+      path: ""
+      type: "content_types"
+    values:
+      layout: "content-type"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+
+# Navigation
+nav:
+  - title: Home
+    url: /
+  - title: Getting Started
+    url: /getting-started/
+    subnav:
+      - title: For Creators
+        url: /getting-started/creators/
+      - title: For Developers
+        url: /getting-started/developers/
+      - title: For Institutions
+        url: /getting-started/institutions/
+  - title: Documentation
+    url: /docs/
+    subnav:
+      - title: Core Concepts
+        url: /docs/core/
+      - title: Specification
+        url: /docs/specification/
+      - title: Content Types
+        url: /docs/content-types/
+      - title: Module System
+        url: /docs/modules/
+      - title: Implementation
+        url: /docs/implementation/
+  - title: Resources
+    url: /resources/
+    subnav:
+      - title: Schema Browser
+        url: /resources/schemas/
+      - title: Examples
+        url: /resources/examples/
+      - title: Tools
+        url: /resources/tools/
+      - title: Libraries
+        url: /resources/libraries/
+  - title: Community
+    url: /community/
+
+# MECS Specific
+mecs:
+  current_version: "0.2.0"
+  github_repo: "mikhaidn/mecs-standard"
+  github_url: "https://github.com/mikhaidn/mecs-standard"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - WEBSITE_PLAN.md

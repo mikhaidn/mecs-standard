@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<div class="docs-layout">
+    <aside class="docs-sidebar">
+        {% include sidebar.html %}
+    </aside>
+
+    <div class="docs-content">
+        <article class="doc-article">
+            <header class="doc-header">
+                <h1>{{ page.title }}</h1>
+                {% if page.description %}
+                <p class="doc-description">{{ page.description }}</p>
+                {% endif %}
+                {% if page.version %}
+                <span class="version-badge">Version {{ page.version }}</span>
+                {% endif %}
+            </header>
+
+            <div class="doc-body">
+                {{ content }}
+            </div>
+
+            <footer class="doc-footer">
+                <div class="doc-nav">
+                    {% if page.previous %}
+                    <a href="{{ page.previous.url | relative_url }}" class="doc-nav-prev">
+                        ← {{ page.previous.title }}
+                    </a>
+                    {% endif %}
+
+                    {% if page.next %}
+                    <a href="{{ page.next.url | relative_url }}" class="doc-nav-next">
+                        {{ page.next.title }} →
+                    </a>
+                    {% endif %}
+                </div>
+
+                <div class="doc-meta">
+                    <p>Last updated: {{ page.last_modified_at | default: site.time | date: "%B %d, %Y" }}</p>
+                    <a href="{{ site.mecs.github_url }}/edit/main/docs/{{ page.path }}" target="_blank">
+                        Edit this page on GitHub
+                    </a>
+                </div>
+            </footer>
+        </article>
+
+        <aside class="docs-toc">
+            <h4>On this page</h4>
+            <nav id="toc"></nav>
+        </aside>
+    </div>
+</div>
