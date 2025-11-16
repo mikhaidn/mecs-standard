@@ -1,0 +1,209 @@
+{
+  "mecsVersion": "0.3.0",
+  "type": "mecs:course",
+  "id": "arithmetic-phd-concept-research",
+  "title": "Foundations of Arithmetic: Axiomatic Approaches",
+  "description": "An advanced exploration of the axiomatic foundations of arithmetic, examining Peano axioms, formal systems, and contemporary research in mathematical logic. Designed for PhD students pursuing research in foundations of mathematics.",
+
+  "metadata": {
+    "canonicalConcept": {
+      "conceptId": "arithmetic",
+      "title": "Arithmetic",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Arithmetic",
+      "sourceType": "wikipedia"
+    },
+
+    "learningType": "concept",
+    "academicLevel": "phd-depth",
+    "proficiencyLevel": "research",
+
+    "author": "Dr. Sarah Mathematician",
+    "institution": "University Advanced Mathematics",
+    "subject": "Mathematical Logic",
+    "language": "en",
+
+    "duration": {
+      "value": 16,
+      "unit": "weeks"
+    },
+
+    "learningObjectives": [
+      "Analyze Peano axioms and their role in defining natural numbers",
+      "Evaluate different axiomatic approaches to arithmetic (Peano, Dedekind, etc.)",
+      "Synthesize formal proofs in first-order and second-order arithmetic",
+      "Critique Gödel's incompleteness theorems in context of arithmetic",
+      "Conduct original research on open problems in foundations of arithmetic",
+      "Publish research findings in peer-reviewed venues"
+    ],
+
+    "prerequisites": [
+      "Mathematical Logic",
+      "Set Theory",
+      "Model Theory",
+      "Proof Theory",
+      "Graduate-level Abstract Algebra"
+    ],
+
+    "tags": [
+      "arithmetic",
+      "mathematical-logic",
+      "foundations",
+      "peano-axioms",
+      "formal-systems",
+      "gödel",
+      "incompleteness",
+      "research"
+    ],
+
+    "license": "CC-BY-4.0",
+
+    "relatedCourses": [
+      {
+        "courseId": "arithmetic-grad-concept-teach",
+        "title": "Advanced Arithmetic Theory",
+        "relationship": "prerequisite",
+        "learningType": "concept",
+        "academicLevel": "grad-breadth",
+        "proficiencyLevel": "teach"
+      },
+      {
+        "courseId": "set-theory-phd-concept-research",
+        "title": "Axiomatic Set Theory Research Seminar",
+        "relationship": "supplement",
+        "learningType": "concept",
+        "academicLevel": "phd-depth",
+        "proficiencyLevel": "research"
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Course Overview and Research Context",
+      "order": 1,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Foundations of Arithmetic: Axiomatic Approaches\n\n## Overview\n\nThis seminar explores the axiomatic foundations of arithmetic from a research perspective. We will examine classical results (Peano, Dedekind, Frege) and contemporary research directions in foundations of mathematics.\n\n## Research Goals\n\nBy the end of this course, you will:\n\n1. **Master** axiomatic arithmetic systems\n2. **Analyze** incompleteness phenomena\n3. **Contribute** original research to the field\n4. **Publish** findings in peer-reviewed venues\n\n## Current Research Questions\n\n- Subsystems of second-order arithmetic and their computational content\n- Reverse mathematics of arithmetic theorems\n- Computational interpretations of Peano Arithmetic\n- Alternative foundations (HoTT, constructive arithmetic)\n\n## Assessment\n\n- Weekly research presentations (30%)\n- Original research paper (50%)\n- Conference presentation or submission (20%)\n\n## Prerequisites\n\nYou should be familiar with:\n- First-order and second-order logic\n- Model theory and forcing\n- Computability theory\n- Proof theory fundamentals"
+      },
+      "metadata": {
+        "duration": {
+          "value": 1,
+          "unit": "weeks"
+        },
+        "difficulty": "hard"
+      }
+    },
+
+    {
+      "id": "peano-axioms",
+      "title": "Peano Axioms: Analysis and Extensions",
+      "order": 2,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# The Peano Axioms\n\n## First-Order Peano Arithmetic (PA)\n\nThe Peano axioms provide an axiomatic foundation for arithmetic:\n\n1. **PA₁**: ∀x (0 ≠ S(x))\n2. **PA₂**: ∀x∀y (S(x) = S(y) → x = y)\n3. **PA₃-PA₇**: Axioms for + and ×\n4. **Induction Schema**: For any formula φ(x),\n   φ(0) ∧ ∀x(φ(x) → φ(S(x))) → ∀xφ(x)\n\n## Second-Order Arithmetic\n\nSecond-order arithmetic (Z₂) strengthens induction:\n\n**Induction Axiom**: ∀X[(0 ∈ X ∧ ∀n(n ∈ X → S(n) ∈ X)) → ∀n(n ∈ X)]\n\n## Research Questions\n\n1. **Non-standard models**: What can we learn from non-standard models of PA?\n2. **Strength comparison**: How do subsystems of Z₂ compare?\n3. **Computational content**: What algorithms are implicit in arithmetic proofs?\n\n## Readings\n\n- Peano, G. (1889). *Arithmetices principia, nova methodo exposita*\n- Dedekind, R. (1888). *Was sind und was sollen die Zahlen?*\n- Simpson, S. (2009). *Subsystems of Second Order Arithmetic*\n- Contemporary papers from JSL, APAL, MLQ\n\n## Research Exercise\n\nProve that PA is consistent (assuming a stronger system), and discuss the philosophical implications of requiring a metatheory."
+      },
+      "metadata": {
+        "duration": {
+          "value": 2,
+          "unit": "weeks"
+        }
+      }
+    },
+
+    {
+      "id": "incompleteness",
+      "title": "Gödel's Incompleteness Theorems",
+      "order": 3,
+      "contentType": "mecs:document",
+      "content": {
+        "url": "https://example.edu/papers/godel-incompleteness-modern.pdf",
+        "title": "Gödel's Incompleteness Theorems: Modern Perspectives",
+        "docType": "pdf",
+        "description": "Comprehensive treatment of incompleteness with contemporary research directions",
+        "pages": 87
+      },
+      "metadata": {
+        "duration": {
+          "value": 3,
+          "unit": "weeks"
+        },
+        "learningObjectives": [
+          "Formalize Gödel's proof using modern logical notation",
+          "Analyze the fixed-point theorem and diagonalization",
+          "Evaluate implications for foundations of mathematics",
+          "Connect to contemporary research in proof theory"
+        ]
+      }
+    },
+
+    {
+      "id": "research-seminar-1",
+      "title": "Research Seminar: Reverse Mathematics",
+      "order": 4,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Reverse Mathematics of Arithmetic\n\n## Overview\n\nReverse mathematics asks: **What axioms are necessary and sufficient to prove a given theorem?**\n\n## The \"Big Five\" Subsystems\n\n1. **RCA₀**: Recursive Comprehension Axiom\n2. **WKL₀**: Weak König's Lemma\n3. **ACA₀**: Arithmetic Comprehension Axiom\n4. **ATR₀**: Arithmetic Transfinite Recursion\n5. **Π¹₁-CA₀**: Π¹₁ Comprehension Axiom\n\n## Research Project Ideas\n\n1. Classify a new arithmetic theorem within the Big Five\n2. Investigate subsystems between known systems\n3. Explore computational interpretations of subsystems\n4. Study effective content of classical theorems\n\n## Recent Results (2020-2025)\n\n- [Survey recent papers from arXiv in Logic]\n- [Discuss open problems]\n\n## Student Presentations\n\nEach student will present a recent paper (last 3 years) from:\n- Journal of Symbolic Logic\n- Annals of Pure and Applied Logic\n- Mathematical Logic Quarterly\n- Notre Dame Journal of Formal Logic\n\n**Assignment**: Select a paper by Week 5, present in Week 7."
+      }
+    },
+
+    {
+      "id": "research-methods",
+      "title": "Research Methods in Mathematical Logic",
+      "order": 5,
+      "contentType": "mecs:video",
+      "content": {
+        "url": "https://example.edu/lectures/research-methods-logic",
+        "provider": "custom",
+        "title": "Conducting Research in Foundations",
+        "description": "Guest lecture by Dr. Expert on research methodology",
+        "duration": 5400
+      }
+    },
+
+    {
+      "id": "original-research",
+      "title": "Original Research Project",
+      "order": 6,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Original Research Project\n\n## Objective\n\nConduct original research resulting in a publishable paper.\n\n## Timeline\n\n- **Week 6**: Research proposal (2-3 pages)\n- **Week 10**: Progress presentation\n- **Week 14**: Draft paper for peer review\n- **Week 16**: Final paper submission\n\n## Possible Topics\n\n1. **Proof-theoretic strength**: Analyze the strength of a specific arithmetic principle\n2. **Model construction**: Build models separating two systems\n3. **Computability**: Extract algorithms from constructive proofs\n4. **Reverse mathematics**: Classify a theorem within subsystems\n5. **Foundations**: Explore alternative arithmetic foundations (HoTT, etc.)\n\n## Paper Requirements\n\n- Length: 15-25 pages\n- Format: LaTeX (AMS style)\n- Quality: Suitable for submission to conferences (ASL, AMS) or journals\n- Originality: Must contain novel results or perspectives\n\n## Mentorship\n\nWeekly one-on-one meetings with instructor to discuss research progress.\n\n## Publication Goal\n\nTop papers will be submitted to:\n- **ASL Annual Meeting** (student session)\n- **Graduate Student Conference** in Logic\n- **Journal**: JSL, APAL, or MLQ (with revisions)\n\n## Collaboration\n\nYou may collaborate with other students, but each student must contribute original work. Co-authored papers are acceptable with clear delineation of contributions."
+      },
+      "metadata": {
+        "duration": {
+          "value": 10,
+          "unit": "weeks"
+        }
+      }
+    },
+
+    {
+      "id": "conference-prep",
+      "title": "Conference Presentation Skills",
+      "order": 7,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Presenting Research at Conferences\n\n## Overview\n\nPresenting at conferences is essential for disseminating research and receiving feedback.\n\n## Presentation Structure (20 minutes)\n\n1. **Introduction** (3 min): Motivation and context\n2. **Background** (4 min): Necessary definitions and prior work\n3. **Main Results** (8 min): Your contributions\n4. **Proof Sketch** (3 min): Key ideas (not every detail)\n5. **Conclusions** (2 min): Impact and future work\n\n## Best Practices\n\n- ✅ Assume audience knows basic logic, but not your specific area\n- ✅ Use examples and intuition before formal definitions\n- ✅ Highlight what's new (don't spend too much time on background)\n- ✅ Practice timing rigorously\n- ❌ Don't read from slides\n- ❌ Don't include full proofs (sketch only)\n- ❌ Don't use tiny fonts or dense slides\n\n## Mock Conference\n\n**Week 15**: Mock conference where all students present.\n- 20-minute presentations\n- 10-minute Q&A\n- Peer feedback\n- Instructor evaluation\n\n## Actual Conference Submission\n\nStudents are encouraged to submit to:\n- **ASL Annual North American Meeting** (Deadline: Usually January)\n- **TACL** (Topology, Algebra, and Categories in Logic)\n- **LC** (Logic Colloquium)\n\n**Funding**: Department may provide travel funding for accepted presentations."
+      }
+    },
+
+    {
+      "id": "conclusion",
+      "title": "Course Conclusion and Next Steps",
+      "order": 8,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Conclusion and Next Steps\n\n## What You've Accomplished\n\nBy completing this seminar, you have:\n\n- ✅ Mastered axiomatic approaches to arithmetic\n- ✅ Analyzed Gödel's incompleteness theorems at a research level\n- ✅ Conducted original research in foundations of mathematics\n- ✅ Developed research presentation skills\n- ✅ Contributed to the mathematical logic community\n\n## Career Paths\n\n**Academia**:\n- Postdoctoral research in logic\n- Faculty positions emphasizing foundational research\n- Collaboration with computer science (proof assistants, type theory)\n\n**Industry**:\n- Formal verification (software/hardware)\n- Proof assistant development (Coq, Lean, Agda)\n- Cryptography and security research\n\n**Further Study**:\n- Proof theory and ordinal analysis\n- Set theory and large cardinals\n- Computability and recursion theory\n- Homotopy Type Theory\n\n## Recommended Next Steps\n\n1. **Revise and submit** your research paper\n2. **Present** at a conference\n3. **Collaborate** with faculty on ongoing projects\n4. **Apply** for postdocs or industry positions\n5. **Stay connected** with the logic research community\n\n## Resources\n\n- **Mailing lists**: FOM (Foundations of Mathematics)\n- **ArXiv**: math.LO (Logic)\n- **Conferences**: ASL, LICS, TACL, LC\n- **Community**: MathOverflow, Math.StackExchange\n\n---\n\n**Congratulations on completing this advanced seminar!**\n\nYou are now equipped to contribute meaningfully to research in foundations of arithmetic and mathematical logic."
+      }
+    }
+  ],
+
+  "createdAt": "2025-11-16T12:00:00Z",
+  "updatedAt": "2025-11-16T12:00:00Z"
+}
