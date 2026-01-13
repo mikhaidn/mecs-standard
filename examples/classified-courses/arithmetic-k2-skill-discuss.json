@@ -1,0 +1,205 @@
+{
+  "mecsVersion": "0.3.0",
+  "type": "mecs:course",
+  "id": "arithmetic-k2-skill-discuss",
+  "title": "Basic Arithmetic for Kindergarten",
+  "description": "Learn to count, add, and subtract numbers 1-10. Perfect for kindergarten through 2nd grade students developing foundational math skills.",
+
+  "metadata": {
+    "canonicalConcept": {
+      "conceptId": "arithmetic",
+      "title": "Arithmetic",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Arithmetic",
+      "sourceType": "wikipedia"
+    },
+
+    "learningType": "skill",
+    "academicLevel": "k-2",
+    "proficiencyLevel": "discuss",
+
+    "author": "Jane Teacher",
+    "institution": "Elementary Math Academy",
+    "subject": "Mathematics",
+    "language": "en",
+
+    "duration": {
+      "value": 12,
+      "unit": "weeks"
+    },
+
+    "learningObjectives": [
+      "Count from 1 to 10",
+      "Recognize written numbers 1-10",
+      "Add single-digit numbers using objects",
+      "Subtract single-digit numbers using objects",
+      "Explain addition and subtraction to peers",
+      "Solve simple word problems"
+    ],
+
+    "prerequisites": [
+      "Can count to 5",
+      "Recognizes basic shapes"
+    ],
+
+    "tags": [
+      "math",
+      "arithmetic",
+      "kindergarten",
+      "elementary",
+      "addition",
+      "subtraction",
+      "counting"
+    ],
+
+    "license": "CC-BY-4.0",
+
+    "relatedCourses": [
+      {
+        "courseId": "arithmetic-36-skill-teach",
+        "title": "Arithmetic Mastery for 3rd-6th Grade",
+        "relationship": "next-level",
+        "learningType": "skill",
+        "academicLevel": "3-6",
+        "proficiencyLevel": "teach"
+      },
+      {
+        "courseId": "arithmetic-k2-concept-understand",
+        "title": "Understanding Numbers (Kindergarten)",
+        "relationship": "alternative",
+        "learningType": "concept",
+        "academicLevel": "k-2",
+        "proficiencyLevel": "understand"
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "welcome",
+      "title": "Welcome to Math!",
+      "order": 1,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Welcome to Arithmetic!\n\nHi! I'm so excited to learn math with you! 🎉\n\nIn this course, we'll learn about:\n- Counting numbers\n- Adding things together\n- Taking things away\n\nAre you ready? Let's go!"
+      },
+      "metadata": {
+        "duration": {
+          "value": 5,
+          "unit": "minutes"
+        },
+        "difficulty": "easy"
+      }
+    },
+
+    {
+      "id": "counting-intro",
+      "title": "Learning to Count",
+      "order": 2,
+      "contentType": "mecs:video",
+      "content": {
+        "url": "https://youtube.com/watch?v=example-counting",
+        "provider": "youtube",
+        "title": "Counting to 10 with Blocks",
+        "description": "Watch as we count colorful blocks from 1 to 10!",
+        "duration": 180
+      },
+      "metadata": {
+        "duration": {
+          "value": 3,
+          "unit": "minutes"
+        },
+        "learningObjectives": [
+          "Count objects from 1 to 10"
+        ]
+      }
+    },
+
+    {
+      "id": "counting-practice",
+      "title": "Count with Me!",
+      "order": 3,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "## Let's Practice Counting!\n\nLook around your room. Can you find:\n- 🍎 1 apple (or any object)\n- 🍎🍎 2 apples\n- 🍎🍎🍎 3 apples\n\nKeep going up to 10!\n\n**Activity:** Count your toys and tell someone how many you have!"
+      }
+    },
+
+    {
+      "id": "addition-intro",
+      "title": "What is Addition?",
+      "order": 4,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Adding Numbers Together\n\nAddition means **putting things together**!\n\nIf you have:\n- 🍎🍎 2 apples\n- And your friend gives you 🍎 1 more apple\n- Now you have 🍎🍎🍎 3 apples!\n\nWe write this as: **2 + 1 = 3**\n\nThe **+** sign means \"add\" or \"put together\"."
+      }
+    },
+
+    {
+      "id": "addition-video",
+      "title": "Addition with Animals",
+      "order": 5,
+      "contentType": "mecs:video",
+      "content": {
+        "url": "https://youtube.com/watch?v=example-addition",
+        "provider": "youtube",
+        "title": "Learning Addition with Cute Animals",
+        "description": "Count animals and learn how to add!",
+        "duration": 240
+      }
+    },
+
+    {
+      "id": "subtraction-intro",
+      "title": "What is Subtraction?",
+      "order": 6,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Taking Numbers Away\n\nSubtraction means **taking things away**!\n\nIf you have:\n- 🍎🍎🍎 3 apples\n- And you eat 🍎 1 apple\n- Now you have 🍎🍎 2 apples left!\n\nWe write this as: **3 - 1 = 2**\n\nThe **-** sign means \"subtract\" or \"take away\"."
+      }
+    },
+
+    {
+      "id": "word-problems",
+      "title": "Story Problems",
+      "order": 7,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "## Let's Solve Some Story Problems!\n\n### Problem 1\nThere are 4 birds in a tree. 2 more birds fly to the tree. How many birds are there now?\n\n**Think about it:** 4 + 2 = ?\n\n### Problem 2\nYou have 5 cookies. You eat 1 cookie. How many cookies are left?\n\n**Think about it:** 5 - 1 = ?\n\n### Problem 3\nThere are 3 red cars and 2 blue cars. How many cars are there in total?\n\n**Think about it:** 3 + 2 = ?"
+      }
+    },
+
+    {
+      "id": "practice-worksheet",
+      "title": "Practice Worksheet",
+      "order": 8,
+      "contentType": "mecs:document",
+      "content": {
+        "url": "https://example.com/worksheets/arithmetic-k2-practice.pdf",
+        "title": "Addition and Subtraction Practice",
+        "docType": "pdf",
+        "description": "Print this worksheet and practice adding and subtracting!",
+        "pages": 2,
+        "downloadable": true
+      }
+    },
+
+    {
+      "id": "celebration",
+      "title": "You Did It!",
+      "order": 9,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Congratulations! 🎉\n\nYou learned how to:\n- ✅ Count to 10\n- ✅ Add numbers together\n- ✅ Subtract numbers\n- ✅ Solve word problems\n\n## What's Next?\n\nNow you can:\n- Help your friends learn math!\n- Practice with bigger numbers\n- Try multiplication (adding the same number many times)\n\nKeep practicing, and you'll become a math expert! 🌟"
+      }
+    }
+  ],
+
+  "createdAt": "2025-11-16T12:00:00Z",
+  "updatedAt": "2025-11-16T12:00:00Z"
+}
