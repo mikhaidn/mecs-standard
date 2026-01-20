@@ -1,43 +1,43 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://mecs-standard.org/schema/v1.0/course.schema.json",
-  "title": "MECS Course Schema",
-  "description": "Modular Educational Content Standard - Course structure v0.2.0",
+  "$id": "https://mecs-standard.org/schema/v1.0/module.schema.json",
+  "title": "MECS Module Schema",
+  "description": "Standalone module that can be imported into courses",
   "type": "object",
   "required": ["mecsVersion", "type", "id", "title", "sections"],
   "properties": {
     "mecsVersion": {
       "type": "string",
-      "description": "Version of MECS standard this course conforms to",
+      "description": "Version of MECS standard this module conforms to",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
       "examples": ["0.2.0"]
     },
     "type": {
       "type": "string",
-      "const": "mecs:course",
+      "const": "mecs:module",
       "description": "Type identifier for this content"
     },
     "id": {
       "type": "string",
-      "description": "Unique identifier for this course",
+      "description": "Unique identifier for this module",
       "minLength": 1
     },
     "title": {
       "type": "string",
-      "description": "Course title",
+      "description": "Module title",
       "minLength": 1
     },
     "description": {
       "type": "string",
-      "description": "Course description"
+      "description": "Module description"
     },
     "metadata": {
       "type": "object",
-      "description": "Course metadata",
+      "description": "Module metadata",
       "properties": {
         "author": {
           "type": "string",
-          "description": "Course author or creator"
+          "description": "Module author or creator"
         },
         "institution": {
           "type": "string",
@@ -68,14 +68,14 @@
             },
             "unit": {
               "type": "string",
-              "enum": ["minutes", "hours", "days", "weeks", "months"]
+              "enum": ["minutes", "hours", "days", "weeks"]
             }
           },
           "required": ["value", "unit"]
         },
         "prerequisites": {
           "type": "array",
-          "description": "Prerequisites for this course",
+          "description": "Prerequisites for this module",
           "items": {
             "type": "string"
           }
@@ -101,41 +101,17 @@
         },
         "version": {
           "type": "string",
-          "description": "Course content version"
+          "description": "Module content version"
         }
       }
     },
     "sections": {
       "type": "array",
-      "description": "Course sections/modules",
+      "description": "Module sections",
       "items": {
         "$ref": "section.schema.json"
       },
-      "minItems": 0
-    },
-    "assessments": {
-      "type": "object",
-      "description": "Course assessments (future extension)",
-      "properties": {
-        "quizzes": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        },
-        "assignments": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        },
-        "exams": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        }
-      }
+      "minItems": 1
     },
     "extensions": {
       "type": "object",

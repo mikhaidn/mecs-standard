@@ -1,0 +1,243 @@
+syntax = "proto3";
+
+package mecs.v1;
+
+option go_package = "github.com/mikhaidn/mecs-standard/gen/go/mecs/v1;mecsv1";
+option java_package = "org.mecs.standard.v1";
+option java_multiple_files = true;
+option csharp_namespace = "Mecs.V1";
+
+// Core MECS types
+
+// Course represents a complete educational course
+message Course {
+  string mecs_version = 1;  // e.g., "0.2.0"
+  string type = 2;           // Always "mecs:course"
+  string id = 3;
+  string title = 4;
+  string description = 5;
+  CourseMetadata metadata = 6;
+  repeated Section sections = 7;
+  Assessments assessments = 8;
+  map<string, string> extensions = 9;
+  string created_at = 10;   // ISO 8601 timestamp
+  string updated_at = 11;   // ISO 8601 timestamp
+}
+
+// Module represents a standalone, reusable module
+message Module {
+  string mecs_version = 1;
+  string type = 2;           // Always "mecs:module"
+  string id = 3;
+  string title = 4;
+  string description = 5;
+  ModuleMetadata metadata = 6;
+  repeated Section sections = 7;
+  map<string, string> extensions = 8;
+  string created_at = 9;
+  string updated_at = 10;
+}
+
+// Section represents a single content section
+message Section {
+  string id = 1;
+  string title = 2;
+  uint32 order = 3;
+  string content_type = 4;   // e.g., "mecs:text", "mecs:video", "mecs:module-ref"
+
+  oneof content {
+    TextContent text_content = 5;
+    VideoContent video_content = 6;
+    DocumentContent document_content = 7;
+    ModuleRefContent module_ref_content = 8;
+    bytes raw_content = 9;   // For custom content types
+  }
+
+  SectionMetadata metadata = 10;
+  string created_at = 11;
+  string updated_at = 12;
+}
+
+// Metadata messages
+
+message CourseMetadata {
+  string author = 1;
+  string institution = 2;
+  string subject = 3;
+  string level = 4;           // "beginner", "intermediate", "advanced", "expert"
+  string language = 5;        // ISO 639-1 code
+  Duration duration = 6;
+  repeated string prerequisites = 7;
+  repeated string learning_objectives = 8;
+  repeated string tags = 9;
+  string license = 10;
+  string version = 11;
+}
+
+message ModuleMetadata {
+  string author = 1;
+  string institution = 2;
+  string subject = 3;
+  string level = 4;
+  string language = 5;
+  Duration duration = 6;
+  repeated string prerequisites = 7;
+  repeated string learning_objectives = 8;
+  repeated string tags = 9;
+  string license = 10;
+  string version = 11;
+}
+
+message SectionMetadata {
+  Duration duration = 1;
+  string difficulty = 2;      // "easy", "medium", "hard"
+  repeated string learning_objectives = 3;
+  repeated string keywords = 4;
+  bool is_optional = 5;
+  repeated string prerequisites = 6;
+}
+
+message Duration {
+  double value = 1;
+  string unit = 2;            // "minutes", "hours", "days", "weeks", "months"
+}
+
+// Content type messages
+
+message TextContent {
+  string format = 1;          // "markdown", "html", "plain"
+  string text = 2;
+}
+
+message VideoContent {
+  string url = 1;
+  string provider = 2;        // "youtube", "vimeo", "custom"
+  string title = 3;
+  string description = 4;
+  uint32 duration = 5;        // Duration in seconds
+  string transcript = 6;
+  string thumbnail_url = 7;
+  map<string, string> custom_fields = 8;
+}
+
+message DocumentContent {
+  string url = 1;
+  string title = 2;
+  string doc_type = 3;        // "pdf", "docx", "pptx", etc.
+  string description = 4;
+  uint64 file_size = 5;       // Size in bytes
+  uint32 pages = 6;
+  bool downloadable = 7;
+  map<string, string> custom_fields = 8;
+}
+
+message ModuleRefContent {
+  string url = 1;
+  string title = 2;           // Optional override
+  string description = 3;     // Optional override
+  CacheStrategy cache = 4;
+  ModuleOverrides overrides = 5;
+}
+
+message CacheStrategy {
+  string strategy = 1;        // "always-fetch", "cache-first", "network-first"
+  uint32 ttl = 2;             // Time to live in seconds
+}
+
+message ModuleOverrides {
+  map<string, string> metadata = 1;
+  repeated string section_order = 2;
+  repeated string exclude_sections = 3;
+}
+
+// Assessments (placeholder for future)
+message Assessments {
+  repeated Quiz quizzes = 1;
+  repeated Assignment assignments = 2;
+  repeated Exam exams = 3;
+}
+
+message Quiz {
+  // Future: Quiz structure
+}
+
+message Assignment {
+  // Future: Assignment structure
+}
+
+message Exam {
+  // Future: Exam structure
+}
+
+// Service definitions (optional - for API implementations)
+
+service MECSService {
+  // Validate a course
+  rpc ValidateCourse(ValidateCourseRequest) returns (ValidateCourseResponse);
+
+  // Validate a module
+  rpc ValidateModule(ValidateModuleRequest) returns (ValidateModuleResponse);
+
+  // Fetch and unfurl a module
+  rpc UnfurlModule(UnfurlModuleRequest) returns (UnfurlModuleResponse);
+
+  // Convert between formats
+  rpc ConvertToJSON(ConvertToJSONRequest) returns (ConvertToJSONResponse);
+  rpc ConvertFromJSON(ConvertFromJSONRequest) returns (ConvertFromJSONResponse);
+}
+
+message ValidateCourseRequest {
+  Course course = 1;
+}
+
+message ValidateCourseResponse {
+  bool valid = 1;
+  repeated ValidationError errors = 2;
+}
+
+message ValidateModuleRequest {
+  Module module = 1;
+}
+
+message ValidateModuleResponse {
+  bool valid = 1;
+  repeated ValidationError errors = 2;
+}
+
+message UnfurlModuleRequest {
+  string module_url = 1;
+  CacheStrategy cache_strategy = 2;
+}
+
+message UnfurlModuleResponse {
+  Module module = 1;
+  repeated Section sections = 2;
+}
+
+message ConvertToJSONRequest {
+  oneof source {
+    Course course = 1;
+    Module module = 2;
+  }
+}
+
+message ConvertToJSONResponse {
+  string json = 1;
+}
+
+message ConvertFromJSONRequest {
+  string json = 1;
+}
+
+message ConvertFromJSONResponse {
+  oneof result {
+    Course course = 1;
+    Module module = 2;
+  }
+}
+
+message ValidationError {
+  string field = 1;
+  string message = 2;
+  string code = 3;
+}

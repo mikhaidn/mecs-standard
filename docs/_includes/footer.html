@@ -1,0 +1,51 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>MECS</h4>
+                <p>Modular Educational Content Standard</p>
+                <p class="footer-tagline">Making educational content portable</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="{{ '/getting-started/' | relative_url }}">Getting Started</a></li>
+                    <li><a href="{{ '/docs/specification/' | relative_url }}">Specification</a></li>
+                    <li><a href="{{ '/docs/modules/' | relative_url }}">Module System</a></li>
+                    <li><a href="{{ '/docs/implementation/' | relative_url }}">Implementation Guide</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="{{ '/resources/schemas/' | relative_url }}">Schema Browser</a></li>
+                    <li><a href="{{ '/resources/examples/' | relative_url }}">Examples</a></li>
+                    <li><a href="{{ '/resources/tools/' | relative_url }}">Tools</a></li>
+                    <li><a href="{{ '/resources/libraries/' | relative_url }}">Libraries</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="{{ site.mecs.github_url }}" target="_blank">GitHub</a></li>
+                    <li><a href="{{ site.mecs.github_url }}/issues" target="_blank">Issues</a></li>
+                    <li><a href="{{ site.mecs.github_url }}/discussions" target="_blank">Discussions</a></li>
+                    <li><a href="{{ '/community/' | relative_url }}">Contributing</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; {{ site.time | date: '%Y' }} MECS Contributors.
+                Licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0 Universal</a>.
+            </p>
+            <p>
+                <a href="{{ site.mecs.github_url }}" target="_blank">v{{ site.mecs.current_version }}</a>
+            </p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,135 @@
+{
+  "mecsVersion": "0.2.0",
+  "type": "mecs:module",
+  "id": "python-functions-module",
+  "title": "Python Functions",
+  "description": "Learn how to write and use functions in Python, including parameters, return values, and best practices.",
+  "metadata": {
+    "author": "Dr. Sarah Johnson",
+    "institution": "Tech University",
+    "subject": "Computer Science",
+    "level": "beginner",
+    "language": "en",
+    "duration": {
+      "value": 2,
+      "unit": "hours"
+    },
+    "prerequisites": ["Basic Python syntax", "Variables and data types"],
+    "learningObjectives": [
+      "Define and call functions in Python",
+      "Use parameters and return values",
+      "Understand function scope",
+      "Apply DRY principles with functions"
+    ],
+    "tags": ["python", "functions", "programming", "beginner"],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0"
+  },
+  "sections": [
+    {
+      "id": "func-001",
+      "title": "Introduction to Functions",
+      "order": 0,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Introduction to Functions\n\nFunctions are reusable blocks of code that perform specific tasks. They help you:\n\n- **Organize code** - Break complex programs into manageable pieces\n- **Reuse code** - Write once, use many times\n- **Maintain code** - Fix bugs in one place\n- **Read code** - Make programs easier to understand\n\n## Basic Function Syntax\n\n```python\ndef greet():\n    print(\"Hello!\")\n```\n\nLet's break this down:\n- `def` - keyword that defines a function\n- `greet` - function name\n- `()` - parentheses for parameters (empty here)\n- `:` - colon marks the start of the function body\n- Indented code - the function body\n\n## Calling a Function\n\n```python\ngreet()  # Output: Hello!\n```"
+      },
+      "metadata": {
+        "duration": {
+          "value": 15,
+          "unit": "minutes"
+        },
+        "difficulty": "easy",
+        "keywords": ["functions", "def", "syntax"]
+      }
+    },
+    {
+      "id": "func-002",
+      "title": "Function Parameters",
+      "order": 1,
+      "contentType": "mecs:video",
+      "content": {
+        "url": "https://www.youtube.com/watch?v=9Os0o3wzS_I",
+        "provider": "youtube",
+        "title": "Python Functions - Parameters and Arguments",
+        "description": "Learn how to pass data into functions using parameters",
+        "duration": 840
+      },
+      "metadata": {
+        "duration": {
+          "value": 14,
+          "unit": "minutes"
+        },
+        "difficulty": "easy",
+        "learningObjectives": [
+          "Define functions with parameters",
+          "Pass arguments to functions",
+          "Use multiple parameters"
+        ],
+        "keywords": ["parameters", "arguments", "function calls"]
+      }
+    },
+    {
+      "id": "func-003",
+      "title": "Return Values",
+      "order": 2,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Return Values\n\nFunctions can send data back using the `return` statement.\n\n## Basic Return\n\n```python\ndef add(a, b):\n    return a + b\n\nresult = add(5, 3)\nprint(result)  # Output: 8\n```\n\n## Multiple Returns\n\n```python\ndef get_user_info():\n    name = \"Alice\"\n    age = 25\n    return name, age\n\nuser_name, user_age = get_user_info()\n```\n\n## Return vs Print\n\n**Important:** `return` and `print` are different!\n\n- `print` - displays output to console\n- `return` - sends value back to caller\n\n```python\ndef bad_add(a, b):\n    print(a + b)  # Just prints, returns None\n\ndef good_add(a, b):\n    return a + b  # Returns the value\n\n# You can use the returned value!\nresult = good_add(5, 3) * 2  # Works! result = 16\n```"
+      },
+      "metadata": {
+        "duration": {
+          "value": 20,
+          "unit": "minutes"
+        },
+        "difficulty": "easy",
+        "keywords": ["return", "return values", "function output"]
+      }
+    },
+    {
+      "id": "func-004",
+      "title": "Function Scope",
+      "order": 3,
+      "contentType": "mecs:text",
+      "content": {
+        "format": "markdown",
+        "text": "# Function Scope\n\nVariables have **scope** - where they can be accessed.\n\n## Local Scope\n\nVariables created inside a function are **local** - only accessible inside that function.\n\n```python\ndef my_function():\n    x = 10  # Local variable\n    print(x)\n\nmy_function()  # Output: 10\nprint(x)  # Error! x doesn't exist here\n```\n\n## Global Scope\n\nVariables created outside functions are **global** - accessible everywhere.\n\n```python\ny = 20  # Global variable\n\ndef my_function():\n    print(y)  # Can access global variable\n\nmy_function()  # Output: 20\nprint(y)  # Output: 20\n```\n\n## Best Practice\n\n**Avoid global variables when possible.** Pass data via parameters instead:\n\n```python\n# Good practice\ndef calculate(value):\n    result = value * 2\n    return result\n\nanswer = calculate(10)\n```"
+      },
+      "metadata": {
+        "duration": {
+          "value": 25,
+          "unit": "minutes"
+        },
+        "difficulty": "medium",
+        "keywords": ["scope", "local variables", "global variables"]
+      }
+    },
+    {
+      "id": "func-005",
+      "title": "Practice Exercises",
+      "order": 4,
+      "contentType": "mecs:document",
+      "content": {
+        "url": "https://example.com/docs/python-functions-exercises.pdf",
+        "title": "Python Functions Practice Exercises",
+        "docType": "pdf",
+        "description": "10 hands-on exercises to practice writing functions with solutions",
+        "fileSize": 1024000,
+        "pages": 5,
+        "downloadable": true
+      },
+      "metadata": {
+        "duration": {
+          "value": 45,
+          "unit": "minutes"
+        },
+        "difficulty": "medium",
+        "keywords": ["exercises", "practice", "hands-on"]
+      }
+    }
+  ],
+  "createdAt": "2025-01-10T10:00:00Z",
+  "updatedAt": "2025-01-10T10:00:00Z"
+}
